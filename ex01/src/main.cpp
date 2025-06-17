@@ -18,6 +18,11 @@
 #include <ctime>     // for time()
 #include "Span.hpp"
 #define LARGE_TEST_NUMBERS 10000
+#define RANDOM_NUMBERS_MIN -999999999
+#define RANDOM_NUMBERS_MAX 999999999
+
+
+int randomInRange( int min, int max );
 
 
 int main( int argc, char** argv )
@@ -116,7 +121,7 @@ int main( int argc, char** argv )
   std::cout << "Generating " << LARGE_TEST_NUMBERS << " random numbers : "
             << std::endl;
   for ( int i = 0; i < LARGE_TEST_NUMBERS; i++ ) {
-    randomNumber = (-99999999999) + rand() % (99999999999 - (-99999999999) + 1);
+    randomNumber = randomInRange( RANDOM_NUMBERS_MIN, RANDOM_NUMBERS_MAX );
     // std::cout << randomNumber << "  ";       // uncomment to see the random numbers
     randomNumbers.push_back( randomNumber );
   }
@@ -143,4 +148,10 @@ int main( int argc, char** argv )
   }
 
   return 0;
+}
+
+
+int randomInRange( int min, int max )
+{
+	return ( min + rand() % ( max - min + 1 ) );
 }
