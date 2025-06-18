@@ -36,7 +36,7 @@ int main( int argc, char** argv )
 {
   ( void )argc;
 
-  std::string containerType = (argv[1]) ? argv[1] : "MutantStack";
+  std::string containerType = ( argv[1] ) ? argv[1] : "MutantStack";
 
   if (containerType == "MutantStack" || containerType == "mutant" ) {
     std::cout << "--Running tests for MutantStack container--\n";
